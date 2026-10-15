@@ -1,0 +1,137 @@
+/* ===== Estilos del sitio de Raúl — Lab 01 Gallos Blancos ===== */
+
+/* ----- Página completa ----- */
+body {
+    margin: 0;
+    background-color: #ffffff;
+    color: #222222;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+/* ----- Menú principal del sitio ----- */
+nav {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    padding: 15px;
+}
+
+nav a {
+    color: #ffffff;
+}
+
+/* ----- Menú del Lab 01 (Home, About, Works, Favorites) ----- */
+#submenu {
+    background-color: #0a2a5e;
+    color: #ffffff;
+    text-align: center;
+    font-size: 16px;
+    padding: 10px;
+}
+
+#submenu a {
+    color: #ffffff;
+}
+
+/* ----- Secciones (estilo general) ----- */
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 3px solid #0a2a5e;
+}
+
+h2 {
+    color: #0a2a5e;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    border-bottom: 3px solid #3b82f6;
+    padding-bottom: 5px;
+}
+
+h3 {
+    color: #3b82f6;
+    font-size: 22px;
+}
+
+/* ----- 1. HOME ----- */
+#home {
+    background-color: #0a2a5e;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px;
+}
+
+#logo {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Impact, "Arial Black", sans-serif;
+    font-size: 60px;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    border: 5px solid #ffffff;
+}
+
+#logo span {
+    color: #3b82f6;
+}
+
+.subtitulo {
+    color: #cfe0ff;
+    font-size: 16px;
+    margin: 15px;
+}
+
+#home img {
+    border: 5px solid #ffffff;
+    margin: 20px;
+}
+
+/* ----- 2. ABOUT ----- */
+#about {
+    background-color: #f2f2f2;
+}
+
+/* ----- 3. WORKS (Hitos) ----- */
+#works {
+    background-color: #ffffff;
+}
+
+.obra {
+    background-color: #eef4ff;
+    border: 2px solid #3b82f6;
+    margin: 15px 0;
+    padding: 15px;
+}
+
+.obra img {
+    border: 3px solid #0a2a5e;
+}
+
+.anio {
+    color: #555555;
+    font-size: 16px;
+}
+
+/* ----- 4. FAVORITES (Favoritos) ----- */
+#favorites {
+    background-color: #e6efff;
+}
+
+.favorita {
+    background-color: #ffffff;
+    border: 2px solid #0a2a5e;
+    margin: 15px 0;
+    padding: 10px 20px;
+}
+
+/* ----- Footer ----- */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+}
