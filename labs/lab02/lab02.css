@@ -1,0 +1,73 @@
+/* ===== Lab 02 — Rediseñando una experiencia digital ===== */
+/* Usa el style.css general del sitio (menú, secciones, títulos) y añade lo propio del Lab 02 */
+
+#portada {
+    background-color: #0a2a5e;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px;
+}
+
+#portada h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    margin: 0 0 10px 0;
+}
+
+#portada p {
+    margin: 5px 0;
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.galeria figure {
+    width: 220px;
+    margin: 0;
+    text-align: center;
+}
+
+.galeria img {
+    width: 100%;
+    border: 2px solid #0a2a5e;
+    border-radius: 10px;
+}
+
+.galeria figcaption {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+.problema {
+    background-color: #eef4ff;
+    border-left: 6px solid #3b82f6;
+    padding: 10px 15px;
+    margin: 10px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+}
+
+th, td {
+    border: 2px solid #0a2a5e;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #0a2a5e;
+    color: #ffffff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}

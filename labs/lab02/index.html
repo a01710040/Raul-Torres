@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 02 — Rediseñando una experiencia digital</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="lab02.css">
+</head>
+<body>
+
+    <nav>
+        <a href="../../index.html">Raúl</a> |
+        <a href="../index.html">Labs</a> |
+        <a href="../../deliverables/index.html">Deliverables</a>
+    </nav>
+
+    <div id="submenu">
+        <a href="#app">1. Aplicación</a> |
+        <a href="#flujo-actual">2. Flujo actual</a> |
+        <a href="#analisis">3. Análisis UX</a> |
+        <a href="#propuesta">4. Propuesta</a> |
+        <a href="#flujo-propuesto">5. Flujo propuesto</a> |
+        <a href="#justificacion">6. Justificación</a>
+    </div>
+
+    <section id="portada">
+        <h1>Rediseñando una experiencia digital</h1>
+        <p>Diseño Visual + UX/UI · Lab 02</p>
+        <p>Raúl Torres — A01710040</p>
+    </section>
+
+    <!-- 1. APLICACIÓN SELECCIONADA -->
+    <section id="app">
+        <h2>1. Aplicación seleccionada</h2>
+        <p><strong>Aplicación:</strong> WhatsApp (iPhone)</p>
+        <p><strong>Funcionalidad:</strong> programar un mensaje para que se envíe en una fecha y hora futuras.</p>
+        <p>
+            La tarea consiste en escribir un mensaje y dejarlo agendado para que salga más tarde, por ejemplo
+            un saludo de cumpleaños a primera hora de la mañana. Al momento de hacer este análisis, la función
+            nativa no estaba disponible en mi aplicación, por lo que un usuario de iPhone tiene que usar la app Atajos.
+        </p>
+    </section>
+
+    <!-- 2. FLUJO ACTUAL -->
+    <section id="flujo-actual">
+        <h2>2. Flujo actual</h2>
+        <p>Recorrido que debe hacer hoy un usuario de iPhone: WhatsApp → Atajos → Automatización → Nueva automatización → Hora del día → Acción de WhatsApp → Contacto y mensaje.</p>
+
+        <div class="galeria">
+            <figure>
+                <img src="images/actual-1.png" alt="Chat de WhatsApp sin opción para programar mensajes">
+                <figcaption><strong>Paso 1.</strong> Busco la opción en WhatsApp y no existe.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-2.png" alt="Pestaña Automatización de la app Atajos">
+                <figcaption><strong>Paso 2.</strong> Salgo de WhatsApp y abro Atajos, pestaña Automatización.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-3.png" alt="Pantalla Nueva automatización">
+                <figcaption><strong>Paso 3.</strong> Toco «Nueva automatización».</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-4.png" alt="Selección del disparador Hora del día">
+                <figcaption><strong>Paso 4.</strong> Elijo el disparador «Hora del día».</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-5.png" alt="Selección de hora y fecha">
+                <figcaption><strong>Paso 5.</strong> Defino la hora.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-6.png" alt="Búsqueda de la acción de enviar mensaje por WhatsApp">
+                <figcaption><strong>Paso 6.</strong> Busco la acción de WhatsApp entre muchas opciones (aquí tardé).</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-7.png" alt="Elección de contacto y mensaje">
+                <figcaption><strong>Paso 7.</strong> Elijo contacto y escribo el mensaje.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/actual-8.png" alt="WhatsApp abierto con el mensaje listo para enviar manualmente">
+                <figcaption><strong>Al llegar la hora.</strong> WhatsApp se abre y debo enviar el mensaje yo mismo.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- 3. ANÁLISIS UX -->
+    <section id="analisis">
+        <h2>3. Análisis UX</h2>
+        <p>
+            El usuario necesita <strong>7 pasos</strong> hasta dejar el mensaje programado y, aun así,
+            tiene que enviarlo manualmente cuando llega la hora.
+        </p>
+
+        <h3>Problemas identificados</h3>
+        <div class="problema"><strong>La función no se puede descubrir.</strong> Nada dentro de WhatsApp indica que programar un mensaje sea posible ni dónde hacerlo.</div>
+        <div class="problema"><strong>Obliga a salir de la app.</strong> Una tarea propia de la mensajería se resuelve en otra aplicación, con un flujo largo y ajeno al chat.</div>
+        <div class="problema"><strong>Lenguaje técnico.</strong> «Automatización», «disparador» y «acción» son términos de programación, no de un usuario común.</div>
+        <div class="problema"><strong>Difícil encontrar la acción correcta.</strong> Entre las muchas acciones de Atajos, la de WhatsApp está escondida; fue el paso donde más tiempo perdí.</div>
+        <div class="problema"><strong>No cumple lo que promete.</strong> El mensaje no se envía solo: WhatsApp se abre y hay que tocar enviar.</div>
+        <div class="problema"><strong>Sin retroalimentación ni control.</strong> El mensaje programado no aparece en el chat y no se puede editar ni cancelar desde WhatsApp.</div>
+
+        <h3>Preguntas guía</h3>
+        <table>
+            <tr><th>Pregunta</th><th>Respuesta</th></tr>
+            <tr><td>¿Cuántos pasos necesita el usuario?</td><td>7 hasta programarlo, más un paso manual al momento del envío.</td></tr>
+            <tr><td>¿La navegación es clara?</td><td>No: el recorrido pasa por otra app y no hay pistas dentro de WhatsApp.</td></tr>
+            <tr><td>¿Es fácil encontrar la funcionalidad?</td><td>No, no es visible ni se sugiere en ningún lugar.</td></tr>
+            <tr><td>¿Los elementos visuales son fáciles de identificar?</td><td>En Atajos hay muchas opciones y la acción de WhatsApp queda escondida entre ellas.</td></tr>
+            <tr><td>¿Hay momentos de confusión?</td><td>Sí, al buscar la acción de WhatsApp y al descubrir que el mensaje no se envía automáticamente.</td></tr>
+        </table>
+
+        <h3>Área de oportunidad</h3>
+        <p>Llevar la función al lugar donde el usuario ya está, el chat, con menos pasos, lenguaje cotidiano y retroalimentación clara.</p>
+    </section>
+
+    <!-- 4. PROPUESTA DE DISEÑO -->
+    <section id="propuesta">
+        <h2>4. Propuesta de diseño</h2>
+        <p>
+            La propuesta integra la función directamente en el chat. El botón de enviar lleva una pequeña insignia de reloj;
+            al mantenerlo presionado aparece «Programar mensaje», se elige la fecha y hora con opciones rápidas, y el mensaje
+            queda visible en la conversación como programado, con opciones para editarlo o cancelarlo.
+        </p>
+
+        <div class="galeria">
+            <figure>
+                <img src="images/propuesta-1.png" alt="Chat con el mensaje escrito y el botón de enviar con insignia de reloj">
+                <figcaption>Botón de enviar con insignia de reloj.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/propuesta-2.png" alt="Menú con Enviar ahora y Programar mensaje">
+                <figcaption>Menú: «Enviar ahora» y «Programar mensaje».</figcaption>
+            </figure>
+            <figure>
+                <img src="images/propuesta-3.png" alt="Hoja para elegir fecha y hora con opciones rápidas">
+                <figcaption>Selector de fecha y hora con opciones rápidas.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/propuesta-4.png" alt="Chat con el mensaje programado y aviso de confirmación">
+                <figcaption>Mensaje programado visible en el chat.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/propuesta-5.png" alt="Hoja para editar o cancelar el mensaje programado">
+                <figcaption>Editar, cambiar fecha, enviar ahora o cancelar.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- 5. FLUJO PROPUESTO -->
+    <section id="flujo-propuesto">
+        <h2>5. Flujo propuesto</h2>
+        <p>WhatsApp (chat) → Mantener presionado enviar → Programar mensaje → Elegir fecha y hora → Confirmar.</p>
+
+        <h3>Experiencia actual → Propuesta</h3>
+        <table>
+            <tr><th></th><th>Experiencia actual</th><th>Propuesta</th></tr>
+            <tr><td>Pasos hasta programar</td><td>7</td><td>4</td></tr>
+            <tr><td>Dónde ocurre</td><td>En otra app (Atajos)</td><td>Dentro del chat</td></tr>
+            <tr><td>Envío</td><td>Manual al llegar la hora</td><td>Automático</td></tr>
+            <tr><td>Retroalimentación</td><td>Ninguna en WhatsApp</td><td>Aviso, leyenda y banner en el chat</td></tr>
+            <tr><td>Editar o cancelar</td><td>No se puede desde el chat</td><td>Sí, desde el mismo mensaje</td></tr>
+            <tr><td>Lenguaje</td><td>Técnico («automatización», «disparador»)</td><td>Cotidiano («Se enviará mañana, 8:00 a. m.»)</td></tr>
+        </table>
+    </section>
+
+    <!-- 6. JUSTIFICACIÓN -->
+    <section id="justificacion">
+        <h2>6. Justificación</h2>
+        <p>
+            Mi propuesta parte de un problema concreto: programar un mensaje en WhatsApp hoy exige salir de la app,
+            seguir 7 pasos en un flujo técnico y, al final, enviar el mensaje a mano. El rediseño integra la función
+            en el chat, en 4 pasos, y cada decisión responde a un problema detectado.
+        </p>
+        <p>
+            <strong>Punto de entrada natural.</strong> Usé el botón de enviar como acceso, con un pequeño reloj como señal visual.
+            El usuario ya sabe que ese botón envía; al mantenerlo presionado aparece «Programar mensaje» junto a «Enviar ahora».
+            Así resuelvo la falta de descubrimiento sin añadir botones nuevos que saturen la pantalla.
+        </p>
+        <p>
+            <strong>Decisiones rápidas.</strong> En lugar de configurar una automatización, ofrezco opciones sugeridas como
+            «Hoy · 8:00 p. m.» o «Mañana · 8:00 a. m.», con la posibilidad de elegir otra fecha. Uso lenguaje cotidiano y muestro
+            el mensaje en la hoja para confirmar qué se va a programar. El botón verde de ancho completo deja clara la acción principal
+            y la jerarquía visual guía la lectura de arriba abajo.
+        </p>
+        <p>
+            <strong>Retroalimentación clara.</strong> El mensaje queda en el chat con borde punteado y la leyenda
+            «Programado · mañana, 8:00 a. m.», aparece un aviso de confirmación y un banner indica que hay mensajes programados.
+            El usuario sabe qué quedó agendado y cuándo se enviará.
+        </p>
+        <p>
+            <strong>Control total.</strong> Puede editar el mensaje, cambiar la fecha y hora, enviarlo de inmediato o cancelarlo.
+            La acción destructiva, «Cancelar envío», va en rojo y al final de la lista para evitar toques accidentales.
+        </p>
+        <p>
+            <strong>Consistencia.</strong> Las cinco pantallas comparten colores, tipografía, estilo de burbujas y el icono del reloj
+            como símbolo de «programado», de modo que el usuario reconoce el concepto en cada paso.
+        </p>
+        <p>
+            <strong>Mejora medible.</strong> Se reduce de 7 a 4 pasos, se elimina la salida a otra app y el mensaje se envía
+            automáticamente sin intervención.
+        </p>
+    </section>
+
+    <footer>
+        Lab 02 — Rediseñando una experiencia digital · Raúl Torres A01710040
+    </footer>
+
+</body>
+</html>
