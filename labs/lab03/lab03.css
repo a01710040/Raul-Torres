@@ -1,0 +1,371 @@
+/* ===== Lab 3 — Smart Parking ===== */
+/* Se apoya en el style.css del sitio (solo para el menú principal) y define aquí todo lo del Lab 3 */
+
+body.lab03 {
+    --azul: #0a2a5e;
+    --tinta: #12213f;
+    --papel: #eef1f6;
+    --linea: #cdd5e3;
+    --libre: #12945a;
+    --libre-claro: #d9f3e6;
+    --ocupado: #d23a3a;
+    --ocupado-claro: #fbe0e0;
+
+    background-color: var(--papel);
+    color: var(--tinta);
+    font-family: "Barlow", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+/* ----- Encabezado ----- */
+.encabezado {
+    background-color: var(--azul);
+    color: #ffffff;
+    padding: 22px 28px 20px;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+
+.encabezado p {
+    margin: 8px 0 0;
+    color: #c5d3ee;
+    font-size: 16px;
+}
+
+/* ----- Distribución general ----- */
+.tablero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 24px;
+    max-width: 1320px;
+    margin: 24px auto;
+    padding: 0 20px;
+    align-items: start;
+}
+
+/* ----- Mapa ----- */
+.mapa {
+    background-color: #ffffff;
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+#mapa {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.ayuda {
+    margin: 10px 4px 2px;
+    font-size: 15px;
+    color: #4a5976;
+}
+
+/* ----- Cajones (polígonos sobre la foto) ----- */
+#cajones polygon {
+    cursor: pointer;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linejoin: round;
+    transition: fill 0.25s ease;
+}
+
+#cajones polygon.libre {
+    fill: rgba(18, 168, 100, 0.62);
+}
+
+#cajones polygon.ocupado {
+    fill: rgba(222, 52, 52, 0.66);
+}
+
+#cajones polygon:hover {
+    stroke: #ffe14d;
+    stroke-width: 4;
+}
+
+#cajones polygon:focus-visible {
+    outline: none;
+    stroke: #ffe14d;
+    stroke-width: 5;
+}
+
+/* Destello cuando un sensor reporta un cambio */
+#cajones polygon.cambio {
+    animation: destello 0.9s ease-out;
+}
+
+@keyframes destello {
+    0%   { stroke: #ffe14d; stroke-width: 7; }
+    100% { stroke: #ffffff; stroke-width: 2; }
+}
+
+/* ----- Panel lateral ----- */
+.panel {
+    background-color: #ffffff;
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    padding: 20px;
+    position: sticky;
+    top: 16px;
+}
+
+.panel h2, .panel h3 {
+    font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    color: var(--azul);
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.panel h2 {
+    font-size: 28px;
+    white-space: nowrap;
+}
+
+.panel h3 {
+    font-size: 21px;
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+.panel-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.en-vivo {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    color: var(--libre);
+    font-weight: 600;
+    text-align: right;
+    line-height: 1.2;
+}
+
+.en-vivo .punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--libre);
+    animation: latido 1.6s ease-in-out infinite;
+}
+
+.en-vivo.pausado {
+    color: #7a8499;
+}
+
+.en-vivo.pausado .punto {
+    background-color: #9aa4b8;
+    animation: none;
+}
+
+@keyframes latido {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.3; }
+}
+
+/* ----- Porcentaje de ocupación ----- */
+.ocupacion {
+    margin: 18px 0 20px;
+}
+
+.porcentaje {
+    font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 88px;
+    line-height: 0.9;
+    color: var(--tinta);
+}
+
+.porcentaje small {
+    font-size: 40px;
+    margin-left: 2px;
+    color: #4a5976;
+}
+
+.porcentaje-texto {
+    color: #4a5976;
+    margin-top: 4px;
+}
+
+.barra {
+    height: 14px;
+    background-color: var(--libre-claro);
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.barra-relleno {
+    height: 100%;
+    width: 0;
+    background-color: var(--ocupado);
+    border-radius: 7px;
+    transition: width 0.5s ease;
+}
+
+/* ----- Cifras ----- */
+.cifras {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 0;
+}
+
+.cifra {
+    background-color: var(--papel);
+    border-radius: 8px;
+    padding: 10px 12px;
+    border-top: 4px solid var(--azul);
+}
+
+.cifra.ocupado { border-top-color: var(--ocupado); }
+.cifra.libre   { border-top-color: var(--libre); }
+
+.cifra dt {
+    font-size: 13px;
+    color: #4a5976;
+    line-height: 1.2;
+    min-height: 32px;
+}
+
+.cifra dd {
+    margin: 4px 0 0;
+    font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 1;
+}
+
+/* ----- Leyenda ----- */
+.leyenda {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 16px 0 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+.leyenda li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.muestra {
+    width: 18px;
+    height: 12px;
+    border-radius: 3px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1px var(--linea);
+}
+
+.muestra.libre   { background-color: var(--libre); }
+.muestra.ocupado { background-color: var(--ocupado); }
+
+/* ----- Botones ----- */
+.controles {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.controles button {
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 2px solid var(--azul);
+    background-color: var(--azul);
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.controles button.secundario {
+    background-color: #ffffff;
+    color: var(--azul);
+}
+
+.controles button:hover {
+    filter: brightness(1.15);
+}
+
+.controles button:focus-visible {
+    outline: 3px solid #ffe14d;
+    outline-offset: 2px;
+}
+
+/* ----- Bitácora de eventos ----- */
+.bitacora {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    min-height: 120px;
+}
+
+.bitacora li {
+    display: flex;
+    gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--linea);
+}
+
+.bitacora .hora {
+    color: #6a7690;
+    font-variant-numeric: tabular-nums;
+    flex: none;
+}
+
+.bitacora .entra { color: var(--ocupado); font-weight: 600; }
+.bitacora .sale  { color: var(--libre);   font-weight: 600; }
+
+/* ----- Pie ----- */
+.pie {
+    text-align: center;
+    color: #5a6782;
+    font-size: 14px;
+    padding: 10px 20px 28px;
+}
+
+/* ----- Pantallas pequeñas ----- */
+@media (max-width: 960px) {
+    .tablero {
+        grid-template-columns: 1fr;
+    }
+    .panel {
+        position: static;
+    }
+    .encabezado h1 {
+        font-size: 42px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .en-vivo .punto,
+    #cajones polygon.cambio {
+        animation: none;
+    }
+    .barra-relleno,
+    #cajones polygon {
+        transition: none;
+    }
+}

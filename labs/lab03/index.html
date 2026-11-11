@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3 — Smart Parking | Tec de Monterrey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="lab03.css">
+</head>
+<body class="lab03">
+
+    <nav>
+        <a href="../../index.html">Raúl</a> |
+        <a href="../index.html">Labs</a> |
+        <a href="../../deliverables/index.html">Deliverables</a>
+    </nav>
+
+    <header class="encabezado">
+        <h1>Smart Parking</h1>
+        <p>Tec de Monterrey, Campus Querétaro · Simulación de un sistema IoT de estacionamiento</p>
+    </header>
+
+    <main class="tablero">
+
+        <div class="mapa">
+            <svg id="mapa" viewBox="0 0 1522 1256" role="group" aria-label="Mapa del estacionamiento con sus cajones">
+                <image href="images/estacionamiento.jpg" x="0" y="0" width="1522" height="1256"></image>
+                <g id="cajones"></g>
+            </svg>
+            <p class="ayuda">Haz clic sobre un cajón para cambiar su estado manualmente. Los demás cambian solos, como si los sensores detectaran autos que llegan y se van.</p>
+        </div>
+
+        <aside class="panel" aria-label="Panel de control">
+
+            <div class="panel-titulo">
+                <h2>Estado en vivo</h2>
+                <span class="en-vivo" id="indicador"><span class="punto"></span><span id="indicador-texto">Sensores activos</span></span>
+            </div>
+
+            <div class="ocupacion">
+                <div class="porcentaje"><span id="porcentaje">0</span><small>%</small></div>
+                <div class="porcentaje-texto">de ocupación</div>
+                <div class="barra" role="progressbar" aria-label="Porcentaje de ocupación" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="barra">
+                    <div class="barra-relleno" id="barra-relleno"></div>
+                </div>
+            </div>
+
+            <dl class="cifras">
+                <div class="cifra">
+                    <dt>Total de espacios</dt>
+                    <dd id="total">0</dd>
+                </div>
+                <div class="cifra ocupado">
+                    <dt>Ocupados</dt>
+                    <dd id="ocupados">0</dd>
+                </div>
+                <div class="cifra libre">
+                    <dt>Disponibles</dt>
+                    <dd id="disponibles">0</dd>
+                </div>
+            </dl>
+
+            <ul class="leyenda">
+                <li><span class="muestra libre"></span> Disponible</li>
+                <li><span class="muestra ocupado"></span> Ocupado</li>
+            </ul>
+
+            <div class="controles">
+                <button type="button" id="btn-pausa">Pausar simulación</button>
+                <button type="button" id="btn-reiniciar" class="secundario">Generar datos nuevos</button>
+            </div>
+
+            <h3>Últimos eventos de sensores</h3>
+            <ol class="bitacora" id="bitacora"></ol>
+
+        </aside>
+
+    </main>
+
+    <footer class="pie">
+        Lab 3 — Smart Parking · Datos simulados con JavaScript, sin sensores físicos · Raúl Torres A01710040
+    </footer>
+
+    <script src="slots.js"></script>
+    <script src="lab03.js"></script>
+</body>
+</html>
